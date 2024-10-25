@@ -29,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
         permissionManager = new Permission_Manager(this);
         permissionManager.requestPermissions();
 
-        imageView = findViewById(R.id.imageView);
-        Button buttonPickImage = findViewById(R.id.buttonPickImage);
+        Button buttonPickImage = findViewById(R.id.btn_image);
 
         buttonPickImage.setOnClickListener(v -> openGallery());
     }
@@ -48,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
             if (imageUri != null) {
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-                    imageView.setImageBitmap(bitmap); // 이미지 뷰에 이미지 표시
 
                     // InputImage로 변환
                     InputImage inputImage = InputImage.fromBitmap(bitmap, 0);
