@@ -32,7 +32,10 @@ android {
 }
 
 dependencies {
-
+    implementation("com.google.code.gson:gson:2.8.9")
+    implementation("org.json:json:20210307")
+    implementation("com.google.guava:guava:32.0.1-android")
+    implementation("com.google.mlkit:text-recognition-korean:16.0.1")  // ML Kit OCR 라이브러리
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
