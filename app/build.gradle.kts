@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    implementation("com.google.android.gms:play-services-ads:21.2.0")
     implementation("com.google.code.gson:gson:2.8.9")
     implementation("org.json:json:20210307")
     implementation("com.google.guava:guava:32.0.1-android")
