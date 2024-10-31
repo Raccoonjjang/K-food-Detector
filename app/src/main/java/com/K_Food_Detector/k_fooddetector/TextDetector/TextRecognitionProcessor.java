@@ -1,23 +1,19 @@
-package com.example.k_fooddetector.TextDetector;
+package com.K_Food_Detector.k_fooddetector.TextDetector;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Point;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.text.Text;
-import com.google.mlkit.vision.text.Text.Element;
-import com.google.mlkit.vision.text.Text.Line;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
 import com.google.mlkit.vision.text.korean.KoreanTextRecognizerOptions;
-import com.example.k_fooddetector.FindFood.FindFood;
+import com.K_Food_Detector.k_fooddetector.FindFood.FindFood;
 import java.util.List;
-import com.example.k_fooddetector.ResultActivity;
+import com.K_Food_Detector.k_fooddetector.ResultActivity;
 public class TextRecognitionProcessor {
 
   private Context context;
@@ -56,10 +52,10 @@ public class TextRecognitionProcessor {
       String blockText = block.getText();
 
       // 검색 결과 처리
-      List<com.example.k_fooddetector.FindFood.Food> results = findfood.searchFoodByName(blockText);
+      List<com.K_Food_Detector.k_fooddetector.FindFood.Food> results = findfood.searchFoodByName(blockText);
       if (!results.isEmpty()) {
         hasResults = true;  // 검색 결과가 있음을 표시
-        for (com.example.k_fooddetector.FindFood.Food food : results) {
+        for (com.K_Food_Detector.k_fooddetector.FindFood.Food food : results) {
           String KName = food.getK_name();
           String Ename = food.getE_name();
           String Explain = food.getExplain();

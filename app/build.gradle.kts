@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.k_fooddetector"
+    namespace = "com.K_Food_Detector.k_fooddetector"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.k_fooddetector"
+        applicationId = "com.K_Food_Detector.k_fooddetector"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

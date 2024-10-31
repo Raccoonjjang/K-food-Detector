@@ -1,13 +1,13 @@
-package com.example.k_fooddetector;
+package com.K_Food_Detector.k_fooddetector;
 
 import android.os.Bundle;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.gms.ads.AdRequest;
+
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+
 public class ResultActivity extends AppCompatActivity {
     private AdView adView; // AdView 추가
     @Override

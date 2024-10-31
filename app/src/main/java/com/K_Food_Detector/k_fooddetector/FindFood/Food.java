@@ -1,4 +1,4 @@
-package com.example.k_fooddetector.FindFood;
+package com.K_Food_Detector.k_fooddetector.FindFood;
 
 public class Food {
     public Food(String kName, String eName, String explain) {

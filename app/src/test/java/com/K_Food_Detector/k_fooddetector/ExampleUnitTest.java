@@ -1,4 +1,4 @@
-package com.example.k_fooddetector;
+package com.K_Food_Detector.k_fooddetector;
 
 import org.junit.Test;
 

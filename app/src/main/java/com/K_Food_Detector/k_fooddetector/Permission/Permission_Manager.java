@@ -1,5 +1,5 @@
 // PermissionManager.java
-package com.example.k_fooddetector.Permission;
+package com.K_Food_Detector.k_fooddetector.Permission;
 
 import android.Manifest;
 import android.content.pm.PackageManager;

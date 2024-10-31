@@ -1,4 +1,4 @@
-package com.example.k_fooddetector.FindFood;
+package com.K_Food_Detector.k_fooddetector.FindFood;
 import android.content.Context;
 import com.google.gson.stream.JsonReader;
 import java.io.InputStream;

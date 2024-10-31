@@ -1,4 +1,4 @@
-package com.example.k_fooddetector;
+package com.K_Food_Detector.k_fooddetector;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.example.k_fooddetector", appContext.getPackageName());
+        assertEquals("com.K_Food_Detector.k_fooddetector", appContext.getPackageName());
     }
 }

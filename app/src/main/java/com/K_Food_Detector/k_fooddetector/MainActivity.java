@@ -1,4 +1,4 @@
-package com.example.k_fooddetector;
+package com.K_Food_Detector.k_fooddetector;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -9,10 +9,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.k_fooddetector.Permission.Permission_Manager;
-import com.example.k_fooddetector.TextDetector.TextRecognitionProcessor; // TextRecognitionProcessor import
+import com.K_Food_Detector.k_fooddetector.Permission.Permission_Manager;
+import com.K_Food_Detector.k_fooddetector.TextDetector.TextRecognitionProcessor; // TextRecognitionProcessor import
 import com.google.mlkit.vision.common.InputImage;
-import com.example.k_fooddetector.FindFood.FindFood;
+import com.K_Food_Detector.k_fooddetector.FindFood.FindFood;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.AdRequest;
@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
-
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
