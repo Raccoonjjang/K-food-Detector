@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-        findfood = new FindFood(this);
+        findfood = FindFood.getInstance(this);
         findfood.parseJsonStream();
         permissionManager = new Permission_Manager(this);
         permissionManager.requestPermissions();

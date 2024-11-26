@@ -65,6 +65,9 @@ public class FindFood {
             System.out.println(food.getK_name());
         }
     }*/
+    public List<Food> getFoodList() {
+        return foodList;
+    }
     public List<Food> searchFoodByName(String name) {
         List<Food> results = new ArrayList<>();
         for (Food food : foodList) {

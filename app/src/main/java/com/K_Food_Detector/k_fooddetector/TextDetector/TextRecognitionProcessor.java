@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import androidx.annotation.NonNull;
+
+import com.K_Food_Detector.k_fooddetector.SearchActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.mlkit.vision.common.InputImage;
@@ -43,44 +45,60 @@ public class TextRecognitionProcessor {
               }
             });
   }
-  private void extractTextDetails(Text text) {
+  public void extractTextDetails(String query) {
+    StringBuilder resultBuilder = new StringBuilder();
+    boolean hasResults = false;
+
+    List<com.K_Food_Detector.k_fooddetector.FindFood.Food> results = findfood.searchFoodByName(query);
+    if (!results.isEmpty()) {
+      hasResults = true;
+      for (com.K_Food_Detector.k_fooddetector.FindFood.Food food : results) {
+        String KName = food.getK_name();
+        String Ename = food.getE_name();
+        String resultText = String.format("Korean Name: %s\nEnglish Name: %s\n", KName, Ename);
+        resultBuilder.append(resultText).append("\n");
+      }
+    }
+
+    if (!hasResults) {
+      resultBuilder.append("검색 결과가 없습니다.\n");
+    }
+
+    Intent intent = new Intent(context, SearchActivity.class);
+    intent.putExtra("search_results", resultBuilder.toString());
+    intent.putExtra("search_query", query.trim());
+    context.startActivity(intent);
+  }
+  public void extractTextDetails(Text text) {
     List<Text.TextBlock> textBlocks = text.getTextBlocks();
-    StringBuilder resultBuilder = new StringBuilder();  // 검색 결과를 담을 StringBuilder
-    boolean hasResults = false;  // 검색 결과가 있는지 여부를 추적
+    StringBuilder resultBuilder = new StringBuilder();
+    boolean hasResults = false;
+    StringBuilder queryBuilder = new StringBuilder();  // 검색어를 저장할 StringBuilder
 
     for (Text.TextBlock block : textBlocks) {
       String blockText = block.getText();
+      queryBuilder.append(blockText).append(" ");  // 검색어로 추가
 
-      // 검색 결과 처리
       List<com.K_Food_Detector.k_fooddetector.FindFood.Food> results = findfood.searchFoodByName(blockText);
       if (!results.isEmpty()) {
-        hasResults = true;  // 검색 결과가 있음을 표시
+        hasResults = true;
         for (com.K_Food_Detector.k_fooddetector.FindFood.Food food : results) {
           String KName = food.getK_name();
           String Ename = food.getE_name();
-          String Explain = food.getExplain();
-          String resultText = String.format(
-                  "Korean Name: %s\nEnglish Name: %s\nIngredients: %s\n",
-                  KName, Ename, Explain
-          );
+          String resultText = String.format("Korean Name: %s\nEnglish Name: %s\n", KName, Ename);
           resultBuilder.append(resultText).append("\n");
         }
       }
     }
 
-    // 결과가 없을 경우 메시지 추가
     if (!hasResults) {
       resultBuilder.append("검색 결과가 없습니다.\n");
     }
 
-    // Intent로 ResultActivity에 결과 전달
-    Intent intent = new Intent(context, ResultActivity.class);
-    intent.putExtra("search_results", resultBuilder.toString());  // 결과 전달
+    Intent intent = new Intent(context, SearchActivity.class);
+    intent.putExtra("search_results", resultBuilder.toString());
+    intent.putExtra("search_query", queryBuilder.toString().trim());  // 검색어 전달
     context.startActivity(intent);
   }
 
-  public void stop() {
-    // 리소스 정리
-    textRecognizer.close();
-  }
 }
